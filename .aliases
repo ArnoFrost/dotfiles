@@ -149,3 +149,41 @@ alias reload="exec ${SHELL} -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+
+#自定义别名
+
+alias ng="./ngrok -config ngrok.conf start"
+# alias findc="git log -S /!:1 --source --all"
+# alias findc="find(){git log -S "$1" --source --all}; find"
+
+alias subz="sublime ~/.zshrc"
+alias subg="sublime ~/.gitconfig"
+alias subb="sublime ~/.bash_profile"
+
+alias sz="source ~/.zshrc"
+
+# alias findc='find(){git log -S "$1" --source --all}; find'
+# alias findc='find(){git log -S "$*" --source --all}; find'
+find(){
+  git log -S $1 --source --all
+}
+alias findc=find
+
+gac(){
+   git add --all && git commit -m $1
+}
+alias gac=gac
+
+showAdbLog(){
+	adb logcat -v threadtime | grep -iE $1
+}
+alias adbg=showAdbLog
+saveAdbLog(){
+	adb logcat -v threadtime | grep -iE $1 > $2.txt
+}
+alias adbs=saveAdbLog
+teeAdbLog(){
+	adb logcat -v threadtime | grep -iE $1 | tee $2.txt
+}
+alias adbt=teeAdbLogexport PATH="/usr/local/opt/gettext/bin:$PATH"

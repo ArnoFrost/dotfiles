@@ -1,3 +1,8 @@
+[user]
+	name = xuxin
+	email = xin.xu@carrbot.com
+[credential]
+	helper = osxkeychain
 [alias]
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
@@ -78,6 +83,22 @@
 			git commit --amend -m \"$(git log -1 --pretty=%B)\n\nCloses #$1.\"; \
 		fi \
 	}; f"
+	# 自定义git alias
+	lm = log --no-merges --color --date=format:'%Y-%m-%d %H:%M:%S' --author='xuxin' --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Cblue %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lss = log --no-merges --color --stat --graph --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Cblue %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lms = log --no-merges --color --stat --date=format:'%Y-%m-%d %H:%M:%S' --author='xuxin' --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Cblue %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit
+	ls = log --no-merges --color --graph --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Cblue %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit
+	findba = branch -a --contains
+	# findbl = branch --contains
+	# findbr = branch -r --contains
+	checkprecommit = reset --hard HEAD^
+	dmme = log --author="xuxin" --pretty=tformat: --numstat | awk '{ add += $1 subs += $2 loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -
+	dmall = log --pretty='%aN' | sort | uniq -c | sort -k1 -n -r
+
+	st = status
+	co = checkout
+	br = branch -b
+	subp = submodule foreach 'git pull'	
 
 [apply]
 

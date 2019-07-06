@@ -96,5 +96,18 @@ brew install tree
 brew install vbindiff
 brew install zopfli
 
+# 添加部分自定义安装
+brew install autojump
+brew install htop
+brew install axel
+brew install privoxy
+brew install boxes
+brew install ccat
+brew install exa
+brew install mas
+brew install nvm
+brew install youtube-dl
+brew install zsh-syntax-highlighting
+
 # Remove outdated versions from the cellar.
 brew cleanup
