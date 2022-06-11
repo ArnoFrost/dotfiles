@@ -106,7 +106,6 @@ brew install ccat
 brew install exa
 brew install mas
 brew install nvm
-brew install youtube-dl
 brew install zsh-syntax-highlighting
 
 # Remove outdated versions from the cellar.
